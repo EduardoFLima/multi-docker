@@ -10,14 +10,14 @@ script:
   - docker run -e CI=true edulima/complex npm run test
 
 after_success:
-  - docker build -t edulima/multi-client ./client
-  - docker build -t edulima/multi-nginx ./nginx
-  - docker build -t edulima/multi-server ./server
-  - docker build -t edulima/multi-worker ./worker
+  - docker build -t eduefi/multi-client ./client
+  - docker build -t eduefi/multi-nginx ./nginx
+  - docker build -t eduefi/multi-server ./server
+  - docker build -t eduefi/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push edulima/multi-client
-  - docker push edulima/multi-nginx
-  - docker push edulima/multi-server
-  - docker push edulima/multi-worker  
+  - docker push eduefi/multi-client
+  - docker push eduefi/multi-nginx
+  - docker push eduefi/multi-server
+  - docker push eduefi/multi-worker
